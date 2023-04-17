@@ -52,11 +52,6 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Main Menu...");
     }
 
-    public void Options()
-    {
-        Debug.Log("Options...");
-    }
-
     public void ExitGame()
     {
         Debug.Log("Exit Game...");
