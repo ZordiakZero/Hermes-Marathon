@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
+
 public class DisplayMenu : MonoBehaviour
 {
-    public Renderer renderer;
-    public Material protanopiaMaterial;
-    public Material deuteranopiaMaterial;
-    public Material tritanopiaMaterial;
-    public TMPro.TMP_Dropdown myDrop;
+    public Slider brightnessSlider;
+    public PostProcessProfile brightness;
+    public PostProcessLayer layer;
 
-    public void ColorSelector()
+    AutoExposure exposure;
+
+    private void Start()
     {
-        if (myDrop.value == 0)
+        brightness.TryGetSettings(out exposure);
+        AdjustBrightness(brightnessSlider.value);
+    }
+    
+    public void AdjustBrightness(float value)
+    {
+        if (value != 0)
         {
-            renderer.material = protanopiaMaterial;
+            exposure.keyValue.value = value;
         }
-        else if (myDrop.value == 1)
+        else
         {
-            renderer.material = protanopiaMaterial;
-        }
-        else if (myDrop.value == 2)
-        {
-            renderer.material = deuteranopiaMaterial;
-        }
-        else if (myDrop.value == 3)
-        {
-            renderer.material = tritanopiaMaterial;
+            exposure.keyValue.value = .05f;
         }
     }
 
