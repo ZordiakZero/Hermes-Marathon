@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class DisplayMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Renderer renderer;
+    public Material protanopiaMaterial;
+    public Material deuteranopiaMaterial;
+    public Material tritanopiaMaterial;
+    public TMPro.TMP_Dropdown myDrop;
+
+    public void ColorSelector()
     {
-        
+        if (myDrop.value == 0)
+        {
+            renderer.material = protanopiaMaterial;
+        }
+        else if (myDrop.value == 1)
+        {
+            renderer.material = protanopiaMaterial;
+        }
+        else if (myDrop.value == 2)
+        {
+            renderer.material = deuteranopiaMaterial;
+        }
+        else if (myDrop.value == 3)
+        {
+            renderer.material = tritanopiaMaterial;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
