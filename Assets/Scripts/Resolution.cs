@@ -13,7 +13,7 @@ public class Resolution : MonoBehaviour
 // If you uncomment this block and recompile, the dropdown WILL BREAK! AM WORKING ON A FIX STILL -Joel
 //    void Start()
 //    {
-//        AdjustTemperature(resolutionDropdown.value);
+//        AdjustResolution(resolutionDropdown.value);
 //    }
 
     public void AdjustResolution(float value)
