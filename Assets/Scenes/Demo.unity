@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 85148868}
   - component: {fileID: 85148867}
   m_Layer: 5
-  m_Name: ColorblindDropdown
+  m_Name: TemperatureDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1124,19 +1124,17 @@ MonoBehaviour:
     m_Options:
     - m_Text: None
       m_Image: {fileID: 0}
-    - m_Text: Protanopia
+    - m_Text: Cool
       m_Image: {fileID: 0}
-    - m_Text: Deuteranopia
-      m_Image: {fileID: 0}
-    - m_Text: Tritanopia
+    - m_Text: Warm
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DisplayMenu, Assembly-CSharp
-        m_MethodName: ColorSelector
-        m_Mode: 1
+      - m_Target: {fileID: 436389301}
+        m_TargetAssemblyTypeName: Temperature, Assembly-CSharp
+        m_MethodName: AdjustTemperature
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4776,6 +4774,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425140776}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &436389299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436389300}
+  - component: {fileID: 436389302}
+  - component: {fileID: 436389301}
+  m_Layer: 6
+  m_Name: Temperature
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436389300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436389299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -575.25, y: -246.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1474509498}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436389301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436389299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e2f0ff7f14813418f7ba89da0017d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperatureDropdown: {fileID: 85148867}
+  temperature: {fileID: 11400000, guid: 1bb569040cb48e843a97dcfb35508758, type: 2}
+  layer: {fileID: 715109613}
+--- !u!114 &436389302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436389299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 1bb569040cb48e843a97dcfb35508758, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &438971012
 GameObject:
   m_ObjectHideFlags: 0
@@ -15779,6 +15842,7 @@ RectTransform:
   - {fileID: 43418047}
   - {fileID: 1860833228}
   - {fileID: 156511563}
+  - {fileID: 436389300}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

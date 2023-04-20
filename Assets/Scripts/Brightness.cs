@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 
-public class DisplayMenu : MonoBehaviour
+public class Brightness : MonoBehaviour
 {
     public Slider brightnessSlider;
     public PostProcessProfile brightness;
