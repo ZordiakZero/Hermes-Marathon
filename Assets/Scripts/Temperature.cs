@@ -19,7 +19,7 @@ public class Temperature : MonoBehaviour
         AdjustTemperature(temperatureDropdown.value);
     }
 
-    public void AdjustTemperature(float value)
+    public void AdjustTemperature(int value)
     {
         if (temperatureDropdown.value == 0)
         {
