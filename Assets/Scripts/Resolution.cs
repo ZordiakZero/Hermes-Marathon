@@ -20,18 +20,18 @@ public class Resolution : MonoBehaviour
     {
         if (resolutionDropdown.value == 0)
         {
-            Console.log("Change resolution to 1420x960");
+            Debug.Log("Change resolution to 1420x960");
             Screen.SetResolution(1420, 960, false);
 
         }
         else if (resolutionDropdown.value == 1)
         {
-            Console.log("Change resolution to 1024x800");
+            Debug.Log("Change resolution to 1024x800");
             Screen.SetResolution(1024, 800, false);
         }
         else if (resolutionDropdown.value == 2)
         {
-            Console.log("Change resolution to 600x400");
+            Debug.Log("Change resolution to 600x400");
             Screen.SetResolution(600, 400, false);
         }
     }
