@@ -24,6 +24,12 @@ public class MainMenu : MonoBehaviour
     
     public void Play()
     {
+        PlayerDataSaveObject loadedPlayerData = DataManager.LoadPlayerData();
+        int MaxLevelUnlocked = loadedPlayerData.MaxLevelUnlocked;
+        for (int i = 0; i <= MaxLevelUnlocked; i++)
+        {
+            levels[i].Locked = false;
+        }
         RenderLevels();
     }
 
