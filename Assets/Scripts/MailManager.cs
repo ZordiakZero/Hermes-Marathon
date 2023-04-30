@@ -38,11 +38,13 @@ public class MailManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             GameObject nearestEnvelope = LocateNearestEnvelope(player);
             Debug.DrawLine(player.transform.position, nearestEnvelope.transform.position);
         }
+        */
     }
 
     public bool UpdateHighScore(uint score)
