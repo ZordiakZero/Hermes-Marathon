@@ -19813,9 +19813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544e43ee8000fa9478490d8311f4eb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mixer: {fileID: 0}
   AudioSource: {fileID: 0}
-  mainVolumeSlider: {fileID: 1291155992}
   musicVoumeSlider: {fileID: 1319237153}
 --- !u!224 &5888803441559155914
 RectTransform:
