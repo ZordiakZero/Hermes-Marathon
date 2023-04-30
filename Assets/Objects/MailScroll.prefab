@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7551081820000548900}
   m_Layer: 0
   m_Name: MailScroll
-  m_TagString: Untagged
+  m_TagString: Mail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
