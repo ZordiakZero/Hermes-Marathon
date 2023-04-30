@@ -6,16 +6,18 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class Brightness : MonoBehaviour
 {
-    public Slider brightnessSlider;
-    public PostProcessProfile brightness;
-    public PostProcessLayer layer;
+    [SerializeField]
+    private Slider brightnessSlider;
+    [SerializeField]
+    private PostProcessProfile brightness;
+    [SerializeField]
+    private PostProcessLayer layer;
 
     AutoExposure exposure;
 
     private void Start()
     {
         brightness.TryGetSettings(out exposure);
-        AdjustBrightness(brightnessSlider.value);
     }
     
     public void AdjustBrightness(float value)
