@@ -6,9 +6,12 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class Temperature : MonoBehaviour
 {
-    public TMPro.TMP_Dropdown temperatureDropdown;
-    public PostProcessProfile temperature;
-    public PostProcessLayer layer;
+    [SerializeField]
+    private TMPro.TMP_Dropdown temperatureDropdown;
+    [SerializeField]
+    private PostProcessProfile temperature;
+    [SerializeField]
+    private PostProcessLayer layer;
 
     ColorGrading colorGrading;
 
@@ -16,7 +19,6 @@ public class Temperature : MonoBehaviour
     void Start()
     {
         temperature.TryGetSettings(out colorGrading);
-        AdjustTemperature(temperatureDropdown.value);
     }
 
     public void AdjustTemperature(int value)
