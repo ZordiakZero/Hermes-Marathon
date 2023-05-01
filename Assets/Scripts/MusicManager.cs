@@ -18,17 +18,18 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator PlayLevelMusic()
     {
-        int currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        string currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        char levelNum = currentLevel[currentLevel.Length - 1];
 
-        switch (currentLevel)
+        switch (levelNum)
         {
-            case 1:
+            case '1':
                 audioSource.clip = CrusadersMarch;
                 break;
-            case 2:
+            case '2':
                 audioSource.clip = TownThemeII;
                 break;
-            case 3:
+            case '3':
                 audioSource.clip = TheDevilEpic;
                 break;
             default:
