@@ -7,7 +7,7 @@ public class ParticleDestroy : MonoBehaviour
     public float timeToDie = 3.0f;
 
     public void AboutToDie() {
-        this.transform.parent = null;
+        this.gameObject.transform.parent = null;
         this.gameObject.GetComponent<ParticleSystem>().Play();
         StartCoroutine(DestroyAfter(timeToDie));
     }
