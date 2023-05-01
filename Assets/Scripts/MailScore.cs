@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class MailScore : MonoBehaviour
 {
-    public int MailWorth = 2;
     [HideInInspector]
-    public int FinalScore;
+    public int finalScore;
 
     void Start() {
-        FinalScore = 0;
+        finalScore = 0;
     }
 
 
-    public void AddScore() {
-        FinalScore += MailWorth;
-        //For Testing
-        Debug.Log("Current Points: " + FinalScore);
+    public int AddScore(int mailWorth) {
+        if (mailWorth < 0 ^ mailWorth > 20) {
+            Debug.Log("Mail score was not valid, score not adjusted. Attempted mail score: " + mailWorth);
+            return 0;
+        }
+        finalScore += mailWorth;
+        GameObject scoreNum = GameObject.Find("ScoreNumber");
+        scoreNum.GetComponent<TMPro.TextMeshProUGUI>().text = finalScore.ToString();
+        return 1;
+
     }
 }

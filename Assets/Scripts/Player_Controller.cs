@@ -11,11 +11,13 @@ public class Player_Controller : MonoBehaviour
     public LayerMask groundLayer;
     public int extraJumps = 1;
     public GameplayMenu gameplayMenu;
+    public AudioClip jumpSound;
    
     private Rigidbody rb;
     private bool isGrounded;
     private int remainingJumps;
     private char jumpInput;
+    private AudioSource soundSource;
     private readonly IDictionary<char, KeyCode> jumpKeyCodes = new Dictionary<char, KeyCode>();
 
     void Start()
@@ -24,6 +26,7 @@ public class Player_Controller : MonoBehaviour
         remainingJumps = extraJumps;
         jumpInput = gameplayMenu.JumpInput;
         InitializeJumpKeyCodes();
+        soundSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -36,8 +39,20 @@ public class Player_Controller : MonoBehaviour
             remainingJumps = extraJumps;
         }
 
+
         // Get player input for horizontal movement
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        //Play movement sound
+        if (moveHorizontal != 0f && isGrounded)
+        {
+            if (!soundSource.isPlaying) {
+                soundSource.Play();
+            }
+        }
+        if (moveHorizontal == 0f ^ !isGrounded)
+        {
+            soundSource.Stop();
+        }
         float moveVertical = Input.GetAxisRaw("Vertical");
 
         // Move the player character
@@ -49,6 +64,7 @@ public class Player_Controller : MonoBehaviour
         // Jump when pressing W or Space, and the player has jumps remaining
         if ((Input.GetKeyDown(jumpKeyCodes[jumpInput]) || Input.GetKeyDown(KeyCode.Space)) && remainingJumps > 0)
         {
+            this.gameObject.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(jumpSound);
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
             remainingJumps--;
         }
