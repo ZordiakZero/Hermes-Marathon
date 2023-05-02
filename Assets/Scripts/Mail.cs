@@ -10,7 +10,7 @@ public class Mail : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        soundSource = other.gameObject.GetComponent<AudioSource>();
+        soundSource = other.gameObject.transform.GetChild(1).GetComponent<AudioSource>();
         soundSource.PlayOneShot(soundClip);
         other.gameObject.GetComponent<MailScore>().AddScore(mailWorth);
         this.gameObject.transform.GetChild(0).GetComponent<ParticleDestroy>().AboutToDie();
@@ -18,10 +18,4 @@ public class Mail : MonoBehaviour
         Destroy(this.gameObject);
     } 
 
-    IEnumerator PlayMailSound() {
-        soundSource.PlayOneShot(soundClip);
-        while( soundSource.isPlaying) {
-            yield return null;
-        }    
-    }
 }
