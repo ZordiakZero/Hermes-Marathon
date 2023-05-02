@@ -21,6 +21,7 @@ public class MusicManager : MonoBehaviour
         string currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         char levelNum = currentLevel[currentLevel.Length - 1];
 
+        //Specific music for each level of the game
         switch (levelNum)
         {
             case '1':
@@ -37,6 +38,7 @@ public class MusicManager : MonoBehaviour
                 yield break;
         }
 
+        audioSource.loop = true; // set now music should loop
         audioSource.Play();
 
         while (audioSource.isPlaying)
