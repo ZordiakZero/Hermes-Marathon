@@ -7,10 +7,16 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-    public GameObject pauseMenuUI;
-    public GameObject settingsMenuUI;
-    public GameObject gameplayMenuUI;
-    public GameObject displayMenuUI;
+    [SerializeField]
+    private GameObject pauseMenuUI;
+    [SerializeField]
+    private GameObject settingsMenuUI;
+    [SerializeField]
+    private GameObject gameplayMenuUI;
+    [SerializeField]
+    private GameObject displayMenuUI;
+    [SerializeField]
+    private GameObject audioMenuUI;
 
     // Update is called once per frame
     void Update()
@@ -39,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         settingsMenuUI.SetActive(false);
         gameplayMenuUI.SetActive(false);
         displayMenuUI.SetActive(false);
+        audioMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -54,13 +61,11 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        // SceneManager.LoadScene("Main Menu");
-        Debug.Log("Main Menu...");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void ExitGame()
     {
-        Debug.Log("Exit Game...");
         Application.Quit();
     }
 }

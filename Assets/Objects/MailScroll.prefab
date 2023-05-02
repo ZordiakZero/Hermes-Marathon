@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8626133427aecc94e927a7c0e4312aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mailWorth: 2
+  soundClip: {fileID: 8300000, guid: e65c8dbd473f79145b8e0ef1fbe30e24, type: 3}
 --- !u!65 &7551081820000548900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5028,4 +5030,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf70db6c813797a4ca8222b10cdf35d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDie: 3
+  timeToDie: 6

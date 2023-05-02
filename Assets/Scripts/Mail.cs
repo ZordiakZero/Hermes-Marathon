@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Mail : MonoBehaviour
 {
+    public int mailWorth = 2;
+    private AudioSource soundSource;
+    public AudioClip soundClip;
+
     void OnTriggerEnter(Collider other) 
     {
-        other.gameObject.GetComponent<MailScore>().AddScore();
+        soundSource = other.gameObject.transform.GetChild(1).GetComponent<AudioSource>();
+        soundSource.PlayOneShot(soundClip);
+        other.gameObject.GetComponent<MailScore>().AddScore(mailWorth);
         this.gameObject.transform.GetChild(0).GetComponent<ParticleDestroy>().AboutToDie();
         //TODO: Access the UI and show a popup for getting the mail.
         Destroy(this.gameObject);
     } 
+
 }
