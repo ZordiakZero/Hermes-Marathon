@@ -18,10 +18,4 @@ public class Mail : MonoBehaviour
         Destroy(this.gameObject);
     } 
 
-    IEnumerator PlayMailSound() {
-        soundSource.PlayOneShot(soundClip);
-        while( soundSource.isPlaying) {
-            yield return null;
-        }    
-    }
 }
