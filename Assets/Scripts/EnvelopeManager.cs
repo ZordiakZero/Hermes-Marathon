@@ -15,7 +15,7 @@ public class EnvelopeManager : MonoBehaviour
     private class LevelData
     {
         public EnvelopePosition[] envelopePositions;
-        public uint highestScore;
+        public uint highscore;
     }
 
     public GameObject envelopePrefab;
@@ -49,9 +49,9 @@ public class EnvelopeManager : MonoBehaviour
 
     public bool UpdateHighScore(uint score)
     {
-        if (score > levelData.highestScore)
+        if (score > levelData.highscore)
         {
-            levelData.highestScore = score;
+            levelData.highscore = score;
             string contents = JsonUtility.ToJson(levelData);
             File.WriteAllText(levelDataPath, contents);
             return true;
