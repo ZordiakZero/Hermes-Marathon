@@ -42811,6 +42811,10 @@ PrefabInstance:
       propertyPath: gameplayMenu
       value: 
       objectReference: {fileID: 886506279}
+    - target: {fileID: 7292765047329164837, guid: 50c216ae3922d734f86f47e0d856e5af, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c216ae3922d734f86f47e0d856e5af, type: 3}
