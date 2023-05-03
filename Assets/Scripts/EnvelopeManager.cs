@@ -4,36 +4,30 @@ using UnityEngine;
 public class EnvelopeManager : MonoBehaviour
 {
     [System.Serializable]
-    private class EnvelopePosition
-    {
-        public float x;
-        public float y;
-        public float z;
-    }
-
-    [System.Serializable]
     private class LevelData
     {
-        public EnvelopePosition[] envelopePositions;
         public uint highscore;
     }
 
     public GameObject envelopePrefab;
-    public string levelDataFilename;
+    public Vector3[] envelopePositions;
 
-    private string levelDataPath;
     private LevelData levelData;
 
     private void Awake()
     {
-        levelDataPath = Path.Combine(Application.dataPath, "Resources", levelDataFilename);
-        string levelDataJSON = File.ReadAllText(levelDataPath);
-        levelData = JsonUtility.FromJson<LevelData>(levelDataJSON);
+        string path = Path.Join(Application.persistentDataPath, "SaveData", "LevelData");
+        levelData = new();
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            levelData = JsonUtility.FromJson<LevelData>(json);
+        }
     }
 
     private void Start()
     {
-        SpawnEnvelopes(levelData.envelopePositions);
+        SpawnEnvelopes(envelopePositions);
     }
 
     private void Update()
@@ -52,21 +46,26 @@ public class EnvelopeManager : MonoBehaviour
         if (score > levelData.highscore)
         {
             levelData.highscore = score;
+            string path = Path.Join(Application.persistentDataPath, "SaveData");
             string contents = JsonUtility.ToJson(levelData);
-            File.WriteAllText(levelDataPath, contents);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            File.WriteAllText(Path.Join(path, "LevelData"), contents);
             return true;
         }
         return false;
     }
 
-    private void SpawnEnvelopes(EnvelopePosition[] positions)
+    private void SpawnEnvelopes(Vector3[] positions)
     {
         int numEnvelopes = (int)(positions.Length * 0.75);
         ShufflePositions(positions);
         PopulateEnvelopes(positions, numEnvelopes);
     }
 
-    private GameObject LocateNearestEnvelope(GameObject obj)
+    public GameObject LocateNearestEnvelope(GameObject obj)
     {
         GameObject closestEnvelope = null;
         float threshold = Mathf.Infinity;
@@ -82,21 +81,19 @@ public class EnvelopeManager : MonoBehaviour
         return closestEnvelope;
     }
 
-    private void PopulateEnvelopes(EnvelopePosition[] positions, int count)
+    private void PopulateEnvelopes(Vector3[] positions, int count)
     {
         if (count <= positions.Length)
         {
             int i = 0;
             while (i < count)
             {
-                EnvelopePosition position = positions[i++];
-                Vector3 envelopeVector = new(position.x, position.y, position.z);
-                Instantiate(envelopePrefab, envelopeVector, Quaternion.Euler(0, 0, 90));
+                Instantiate(envelopePrefab, positions[i++], Quaternion.Euler(0, 0, 90));
             }
         }
     }
 
-    private void ShufflePositions(EnvelopePosition[] positions)
+    private void ShufflePositions(Vector3[] positions)
     {
         int i = 0;
         while (i < positions.Length - 1)
