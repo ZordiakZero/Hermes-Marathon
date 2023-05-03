@@ -6,7 +6,7 @@ public class EnvelopeManager : MonoBehaviour
     [System.Serializable]
     private class LevelData
     {
-        public uint highscore;
+        public uint[] highscores;
     }
 
     public GameObject envelopePrefab;
@@ -18,6 +18,7 @@ public class EnvelopeManager : MonoBehaviour
     {
         string path = Path.Join(Application.persistentDataPath, "SaveData", "LevelData");
         levelData = new();
+        levelData.highscores = new uint[] { 0, 0, 0 };
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
@@ -43,9 +44,11 @@ public class EnvelopeManager : MonoBehaviour
 
     public bool UpdateHighScore(uint score)
     {
-        if (score > levelData.highscore)
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        int index = (int) (char.GetNumericValue(sceneName[^1]) - 1);
+        if (score > levelData.highscores[index])
         {
-            levelData.highscore = score;
+            levelData.highscores[index] = score;
             string path = Path.Join(Application.persistentDataPath, "SaveData");
             string contents = JsonUtility.ToJson(levelData);
             if (!Directory.Exists(path))
