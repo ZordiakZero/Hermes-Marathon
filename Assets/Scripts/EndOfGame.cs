@@ -34,7 +34,6 @@ public class EndOfGame : MonoBehaviour
                         loadedPlayerData.MaxLevelUnlocked = 2;
                         break;
                     case '3':
-                        loadedPlayerData.MaxLevelUnlocked = 0;
                         break;
                     default:
                         Debug.LogError("Invalid level index.");
