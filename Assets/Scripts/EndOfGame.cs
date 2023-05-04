@@ -9,6 +9,13 @@ public class EndOfGame : MonoBehaviour
     public float endOfGameDelay;
     public int scoreNeeded = 20;
 
+    public GameObject completeLvlUI;
+
+    public void CompleteLevel()
+    {
+        completeLvlUI.SetActive(true);
+    }
+
     void Start() 
     {
         
@@ -40,6 +47,7 @@ public class EndOfGame : MonoBehaviour
                         Debug.LogError("Invalid level index.");
                         break;
                 }
+                CompleteLevel();
                 DataManager.SavePlayerData(loadedPlayerData);
                 StartCoroutine(DelayEnd(endOfGameDelay));
             }
