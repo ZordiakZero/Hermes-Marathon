@@ -18469,6 +18469,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   envelopePrefab: {fileID: 4090723476584737969, guid: 5a41265e80765c243939207b96769ac7, type: 3}
+  positions:
+  - {x: 24.8, y: 2.7, z: 0}
+  - {x: 22.9, y: 7.9, z: 0}
+  - {x: 26.9, y: 7.9, z: 0}
+  - {x: 25, y: 13.5, z: 0}
+  - {x: 17.1, y: 7.8, z: 0}
+  - {x: 12, y: 16, z: 0}
+  - {x: -0.6, y: 17.8, z: 0}
+  - {x: -4.4, y: 17.8, z: 0}
+  - {x: 16.7, y: 36.1, z: 0}
+  - {x: 20.5, y: 32.8, z: 0}
+  - {x: 26.5, y: 29.8, z: 0}
+  - {x: 37.1, y: 29.8, z: 0}
+  - {x: 32, y: 29.8, z: 0}
+  - {x: 43.5, y: 24.8, z: 0}
+  - {x: 47.3, y: 29.8, z: 0}
+  - {x: 55.3, y: 29.8, z: 0}
+  - {x: 51.4, y: 29.8, z: 0}
+  - {x: 47.5, y: 19.8, z: 0}
+  - {x: 60.5, y: 19.8, z: 0}
+  - {x: 49.5, y: 15, z: 0}
+  - {x: 57.5, y: 12.8, z: 0}
+  - {x: 57.5, y: 7.8, z: 0}
+  - {x: 50.5, y: 7.8, z: 0}
+  - {x: 55, y: 3.8, z: 0}
+  - {x: 61.5, y: 25.4, z: 0}
+  - {x: 62.8, y: 13.8, z: 0}
+  - {x: 65.3, y: 7.8, z: 0}
+  - {x: 67.6, y: 16.9, z: 0}
+  - {x: 73.6, y: 28.2, z: 0}
+  - {x: 80.5, y: 17.9, z: 0}
+  - {x: 80.4, y: 7.8, z: 0}
+  - {x: 84.4, y: 7.8, z: 0}
+  - {x: 91.5, y: 17.8, z: 0}
+  - {x: 95.5, y: 17.8, z: 0}
   levelDataFilename: level3.json
 --- !u!4 &816577408
 Transform:
@@ -19854,8 +19889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 450.92, y: 173.49}
-  m_SizeDelta: {x: -901.83, y: -444.66}
+  m_AnchoredPosition: {x: 748.21, y: 429.4982}
+  m_SizeDelta: {x: -1496.4, y: -956.6766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875443886
 MonoBehaviour:
@@ -19940,7 +19975,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -70.785706}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -21194,8 +21229,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 450.91, y: 222.33}
-  m_SizeDelta: {x: -901.829, y: -444.656}
+  m_AnchoredPosition: {x: 748.20996, y: 446.48468}
+  m_SizeDelta: {x: -1496.4288, y: -892.9655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949091323
 MonoBehaviour:
@@ -39001,12 +39036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

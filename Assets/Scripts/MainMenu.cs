@@ -38,6 +38,14 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Reset()
+    {
+        PlayerDataSaveObject loadedPlayerData = DataManager.LoadPlayerData();
+        loadedPlayerData.MaxLevelUnlocked = 0;
+        DataManager.SavePlayerData(loadedPlayerData);
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
     public void RenderLevels()
     {
         int row = 0;

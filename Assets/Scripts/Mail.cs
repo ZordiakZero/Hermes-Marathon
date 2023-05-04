@@ -14,7 +14,6 @@ public class Mail : MonoBehaviour
         soundSource.PlayOneShot(soundClip);
         other.gameObject.GetComponent<MailScore>().AddScore(mailWorth);
         this.gameObject.transform.GetChild(0).GetComponent<ParticleDestroy>().AboutToDie();
-        //TODO: Access the UI and show a popup for getting the mail.
         Destroy(this.gameObject);
     } 
 

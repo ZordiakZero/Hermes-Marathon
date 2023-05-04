@@ -11,10 +11,10 @@ public class Resolution : MonoBehaviour
     // Start is called before the first frame update
 
 // If you uncomment this block and recompile, the dropdown WILL BREAK! AM WORKING ON A FIX STILL -Joel
-    void Start()
-    {
-        AdjustResolution(resolutionDropdown.value);
-    }
+    // void Start()
+    // {
+    //     AdjustResolution(resolutionDropdown.value);
+    // }
 
     public void AdjustResolution(float value)
     {

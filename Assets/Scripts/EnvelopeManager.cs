@@ -19,33 +19,34 @@ public class EnvelopeManager : MonoBehaviour
     }
 
     public GameObject envelopePrefab;
+    public Vector3[] positions;
     public string levelDataFilename;
 
     private string levelDataPath;
     private LevelData levelData;
 
-    private void Awake()
-    {
-        levelDataPath = Path.Combine(Application.dataPath, "Resources", levelDataFilename);
-        string levelDataJSON = File.ReadAllText(levelDataPath);
-        levelData = JsonUtility.FromJson<LevelData>(levelDataJSON);
-    }
+    // private void Awake()
+    // {
+    //     levelDataPath = Path.Combine(Application.dataPath, "Resources", levelDataFilename);
+    //     string levelDataJSON = File.ReadAllText(levelDataPath);
+    //     levelData = JsonUtility.FromJson<LevelData>(levelDataJSON);
+    // }
 
     private void Start()
     {
-        SpawnEnvelopes(levelData.envelopePositions);
+        SpawnEnvelopes(positions);
     }
 
-    private void Update()
-    {
-        /*
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            GameObject nearestEnvelope = LocateNearestEnvelope(player);
-            Debug.DrawLine(player.transform.position, nearestEnvelope.transform.position);
-        }
-        */
-    }
+    // private void Update()
+    // {
+    //     /*
+    //     foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+    //     {
+    //         GameObject nearestEnvelope = LocateNearestEnvelope(player);
+    //         Debug.DrawLine(player.transform.position, nearestEnvelope.transform.position);
+    //     }
+    //     */
+    // }
 
     public bool UpdateHighScore(uint score)
     {
@@ -59,7 +60,7 @@ public class EnvelopeManager : MonoBehaviour
         return false;
     }
 
-    private void SpawnEnvelopes(EnvelopePosition[] positions)
+    private void SpawnEnvelopes(Vector3[] positions)
     {
         int numEnvelopes = (int)(positions.Length * 0.75);
         ShufflePositions(positions);
@@ -82,21 +83,21 @@ public class EnvelopeManager : MonoBehaviour
         return closestEnvelope;
     }
 
-    private void PopulateEnvelopes(EnvelopePosition[] positions, int count)
+    private void PopulateEnvelopes(Vector3[] positions, int count)
     {
         if (count <= positions.Length)
         {
             int i = 0;
             while (i < count)
             {
-                EnvelopePosition position = positions[i++];
+                Vector3 position = positions[i++];
                 Vector3 envelopeVector = new(position.x, position.y, position.z);
                 Instantiate(envelopePrefab, envelopeVector, Quaternion.Euler(0, 0, 90));
             }
         }
     }
 
-    private void ShufflePositions(EnvelopePosition[] positions)
+    private void ShufflePositions(Vector3[] positions)
     {
         int i = 0;
         while (i < positions.Length - 1)
