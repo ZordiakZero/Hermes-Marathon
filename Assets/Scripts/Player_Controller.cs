@@ -20,6 +20,9 @@ public class Player_Controller : MonoBehaviour
     private AudioSource soundSource;
     private readonly IDictionary<char, KeyCode> jumpKeyCodes = new Dictionary<char, KeyCode>();
 
+    SpriteRenderer sr;
+    Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +30,8 @@ public class Player_Controller : MonoBehaviour
         jumpInput = gameplayMenu.JumpInput;
         InitializeJumpKeyCodes();
         soundSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -45,13 +50,23 @@ public class Player_Controller : MonoBehaviour
         //Play movement sound
         if (moveHorizontal != 0f && isGrounded)
         {
+            animator.SetBool("moving", true);
             if (!soundSource.isPlaying) {
                 soundSource.Play();
             }
         }
         if (moveHorizontal == 0f ^ !isGrounded)
         {
+            animator.SetBool("moving", false);
             soundSource.Stop();
+        }
+
+        if (moveHorizontal < 0 && !sr.flipX)
+        {
+            sr.flipX = true;
+        } else if (moveHorizontal > 0 && sr.flipX)
+        {
+            sr.flipX = false;
         }
         float moveVertical = Input.GetAxisRaw("Vertical");
 
@@ -61,13 +76,21 @@ public class Player_Controller : MonoBehaviour
 
         jumpInput = gameplayMenu.JumpInput;
 
+        if (animator.GetBool("jumping") && isGrounded && moveVertical <= 0)
+        {
+            animator.SetBool("jumping", false);
+        }
+
         // Jump when pressing W or Space, and the player has jumps remaining
         if ((Input.GetKeyDown(jumpKeyCodes[jumpInput]) || Input.GetKeyDown(KeyCode.Space)) && remainingJumps > 0)
         {
+            animator.SetBool("jumping", true);
             this.gameObject.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(jumpSound);
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
             remainingJumps--;
         }
+
+        
     }
 
     void InitializeJumpKeyCodes()
