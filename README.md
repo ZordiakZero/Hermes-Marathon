@@ -15,12 +15,9 @@ In Hermes' Marathon, you play as Hermes, the Greek god known as the messenger of
 
 ## Features
 - Engaging 2D platformer gameplay
-- Levels designt to represent the realms of various Greek gods
+- Levels designed to represent the realms of various Greek gods
 - Inspired by Greek mythology
 - Time-based scoring to encourage fast-paced gameplay
-
-## Requirements
-- [Requirments go here]
 
 ## Installation
 1. If we get this far
