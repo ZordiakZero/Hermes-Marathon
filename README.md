@@ -19,9 +19,6 @@ In Hermes' Marathon, you play as Hermes, the Greek god known as the messenger of
 - Inspired by Greek mythology
 - Time-based scoring to encourage fast-paced gameplay
 
-## Installation
-1. If we get this far
-
 ## Controls
 - Move Left: Left Arrow or `A`
 - Move Right: Right Arrow or `D`
